@@ -14,6 +14,10 @@ class Worker {
 			options.cwd = process.cwd();
 		}
 
+		if (!options.stdio) {
+			options.stdio = "ignore";
+		}
+
 		//get all debug related parameters
 		var debugVars = process.execArgv.filter(execArg => {
 			return (/(debug|inspect)/).test(execArg);
